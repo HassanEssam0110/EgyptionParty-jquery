@@ -23,21 +23,17 @@ const openNavbar = () => {
 const updateCountdown = (dateCountTo) => {
     let countDownDate = new Date(dateCountTo).getTime();
     let nowDate = new Date().getTime();
-
     // Calculating the time difference between two times
     let timeDifference = countDownDate - nowDate;
-
     // Time calculations for days, hours, minutes, and seconds
     var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
     $('.countDown .days').text(days);
     $('.countDown .hours').text(hours);
     $('.countDown .minutes').text(minutes);
     $('.countDown .seconds').text(seconds);
-
     return timeDifference;
 }
 
@@ -54,7 +50,6 @@ const countDownToTime = (dateCountTo) => {
         }
     }, 1000);
 }
-
 
 
 
@@ -76,7 +71,6 @@ $(document).on("click", function (e) {
     }
 });
 
-
 // ?===> scroll menu 
 $("nav a[href^='#']").click((e) => {
     let targetSection = $(e.target).attr("href");
@@ -88,19 +82,11 @@ $("nav a[href^='#']").click((e) => {
     closeNavbar();
 });
 
-
 // ?===> Accordion 
 $('#sliderDown .accordion-head').click((e) => {
     $('.accordion-content').not($(e.target).next()).slideUp(400);
     $(e.target).next().slideToggle(400);
 });
-
-// ?===> CountDown 
-$(window).ready(() => {
-    countDownToTime("may 16 2024 23:59:59");
-    // countDownToTime("jan 20 2024 22:28:59");
-});
-
 
 // ?===> contact form 
 $('#formMsg').keyup((e) => {
@@ -108,7 +94,6 @@ $('#formMsg').keyup((e) => {
     let amontLeft = maxLength - length;
     amontLeft <= 0 ? $("#chars").text("your available character finished") : $('#chars').text(amontLeft)
 });
-
 
 $('#btnContact').click((e) => {
     e.stopPropagation();
@@ -127,3 +112,16 @@ $('#btnContact').click((e) => {
         $('#formMsg').addClass('is-invalid')
     }
 })
+
+
+$(window).ready(() => {
+    // ?===> CountDown 
+    countDownToTime("may 16 2024 23:59:59");
+    // countDownToTime("jan 20 2024 22:28:59");
+
+    // ?===> handle loader 
+    $('#spinner').fadeOut(200, function () {
+        $(this).remove();
+        $('body').css({ overflow: 'auto' });
+    });
+});
