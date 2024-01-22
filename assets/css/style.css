@@ -78,8 +78,13 @@ body {
   box-shadow: none;
 }
 .btn-nav {
+  width: fit-content;
+  text-wrap: nowrap;
   color: #fff;
   text-shadow: 0 0 4px #222;
+  position: absolute;
+  top: 75%;
+  left: 0;
   cursor: pointer;
   background-color: transparent;
   border: none;
