@@ -2,7 +2,7 @@
 let openNav = false;
 const maxLength = 100;
 
-$('.nav-link').fadeOut();
+// $('.nav-link').fadeOut();
 // *=============== FUNCTIONS ===============
 const closeNavbar = () => {
     $('.nav-link').fadeOut(300, () => {

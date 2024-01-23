@@ -79,7 +79,6 @@ body {
 }
 .btn-nav {
   width: fit-content;
-  text-wrap: nowrap;
   color: #fff;
   text-shadow: 0 0 4px #222;
   position: absolute;
